@@ -1,0 +1,185 @@
+<html>
+
+<head>
+  <link href="css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/hw3.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="h-100">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 64px; background-color: #171A21;">
+      <a class="navbar-brand" href="javascript:void(0)"><i class="mdi mdi-gamepad-variant mdi-36px"></i></a>
+      <div class="form-inline ml-2 my-lg-0">
+        <input id="search-game" class="form-control mr-sm-2" type="text" placeholder="Search games">
+      </div>
+
+      <ul class="navbar-nav mr-auto ml-auto d-flex align-items-center">
+        <li class="navbar-text pr-1">
+          <i class="mdi mdi-filter-outline mdi-24px"></i>
+        </li>
+        <li id="genre-dropdown" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Genre
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <button type="button" class="btn btn-link btn-clear">Clear</button>
+            <form class="pl-3 pr-3 m-0">
+
+            </form>
+          </div>
+        </li>
+        <li id="price-dropdown" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Price
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <button type="button" class="btn btn-link btn-clear">Clear</button>
+            <form class="pl-3 pr-3 m-0">
+
+            </form>
+          </div>
+        </li>
+        <li id="year-dropdown" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Release year
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <button type="button" class="btn btn-link btn-clear">Clear</button>
+            <form class="pl-3 pr-3 m-0">
+
+            </form>
+          </div>
+        </li>
+        <li id="rating-dropdown" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Metacritic
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <button type="button" class="btn btn-link btn-clear">Clear</button>
+            <form class="pl-3 pr-3 m-0">
+
+            </form>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a id="clear-all" class="nav-link" href="javascript:void(0)">
+            <i class="mdi mdi-filter-remove-outline mdi-24px"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#about">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="row no-gutters d-flex align-items-stretch w-100" style="position: absolute; top: 64px; bottom: 0px; background-color: #1B2838; background-size: cover;">
+      <div class="col-4 d-flex flex-column text-light justify-content-around">
+        <div class="search pt-3 pb-3 p-2" style="display: none;">
+          <div class="h5 text-center" data-toggle="tooltip" data-placement="top" title="Click on results to compare, plus you can compare across multiple searches!">
+            Visualize your search <i class="mdi mdi-information-outline"></i>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <button id="search-results-left" type="button" class="btn btn-link text-light ml-2">
+              <i class="mdi mdi-chevron-left"></i>
+            </button>
+            <div class="search-results p-2 d-flex align-items-center w-75" style="overflow: hidden;">
+            </div>
+            <button id="search-results-right" type="button" class="btn btn-link text-light mr-2">
+              <i class="mdi mdi-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div id="readme" class="h4 pl-5 pr-5 p-3">
+          <p class="text-center">
+            Find <i class="mdi mdi-magnify"></i> or filter <i class="mdi mdi-filter-outline"></i> games on top.
+          </p>
+          <p class="text-center">
+            Move <i class="mdi mdi-arrow-right-thick"></i> your mouse over the lines,
+          </p>
+          <p class="text-center">
+            or click <i class="mdi mdi-cursor-pointer"></i> on a line to view detail.
+          </p>
+          <p class="text-center">
+            Any pattern or trend surprises <i class="mdi mdi-lightbulb-on-outline"></i> you?
+          </p>
+        </div>
+        <div class="detail pl-5 pr-5 p-3 d-flex flex-column align-items-center justify-content-center">
+          <img id="detail-cover" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAECAYAAABcDxXOAAAABHNCSVQICAgIfAhkiAAAAAxJREFUCJljYBh8AAAAlAABgdLRjAAAAABJRU5ErkJggg==" class="mt-3 mb-3 w-100" style="box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4); display: none;">
+          <div id="detail-name" class="h3">
+          </div>
+          <div class="d-flex justify-content-between w-100 h5">
+            <div id="detail-price" class="h3">
+            </div>
+            <div class="d-flex flex-nowrap align-items-center">
+              <div id="detail-ismultiplayer" class="badge badge-success mr-2" style="display: none !important;" data-toggle="tooltip" data-placement="top" title="Multiplayer">
+                <i class="mdi mdi-account-group"></i>
+              </div>
+              <div id="detail-age" class="d-flex mr-2" style="display: none !important;">
+                <div class="badge badge-secondary">Age</div>
+                <div id="detail-age-limit" class="badge badge-danger"></div>
+              </div>
+              <div id="detail-rating" class="d-flex" style="display: none !important;">
+                <div class="badge badge-secondary">Metacritic</div>
+                <div id="detail-rating-score" class="badge"></div>
+              </div>
+            </div>
+
+          </div>
+          <div id="detail-genres" class="h4 d-flex justify-content-center align-items-center flex-wrap">
+          </div>
+          <div class="d-flex flex-column w-100 h5">
+            <div id="detail-release-date" class="mb-1"></div>
+            <div id="detail-recommendation" class="mb-1"></div>
+            <div id="detail-players"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="main col-8">
+        <div id="chart-container" class="position-absolute w-100 h-100">
+          <svg class="position-absolute w-100 h-100"></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">About</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            A Steam game explorer that helps you discover interesting aspects of your favorite games.
+          </p>
+          <p>
+            The dataset is adapted from <a href="https://data.world/craigkelly/steam-game-data">Craig Kelly's</a> Steam Game Data. Years before 2007 and after 2016 are clipped due to sparse data. Copyright 2018 MoodSpace, all rights reserved. Licensed
+            under the GNU General Public License v3.0.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/levenshtein.min.js"></script>
+  <script src="js/lodash.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.v4.min.js"></script>
+  <script src="js/d3-scale-chromatic.v0.3.min.js"></script>
+  <script src="js/hw3.js"></script>
+</body>
+
+</html>

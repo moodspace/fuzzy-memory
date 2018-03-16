@@ -1,0 +1,22 @@
+Changes between v0 and v1:
+--------------------------------
+
+NOTE: This visualization is redone so most things are changed.
+
+Core:
+ * The data remains the same. Figured out I can use the raw data as-is since file size is no longer an issue.
+
+Visualization:
+ * More dimensions as per parallel coordinates chart allows.. helps to compare the selected points. Old bar chart version can't drill down.
+
+Interaction:
+ * Can hover to peek / click to fix on a data point to reveal its detail.
+ * Can search for games and add them to comparison.
+
+Filtering:
+ * Uses a combination of 5 filters. Old version had these so-called filters which were technically view toggles.
+
+Others:
+ * Localized libraries
+ * More UI elements, instructions etc.
+ * Multiple genre support.. it wasn't a feature.
